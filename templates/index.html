@@ -3,60 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔮 타로 챗봇</title>
+    <title>AI 포트폴리오 챗봇</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🔮 타로 챗봇</h1>
-            <div class="connection-status connected" id="connectionStatus">
-                ✅ 준비됨
-            </div>
+    <div class="chat-container">
+        <header class="chat-header">
+            <h1>AI 포트폴리오 챗봇</h1>
+            <p>손관주에 대해 궁금한 점을 무엇이든 물어보세요.</p>
         </header>
-
-        <div class="main-content">
-            <!-- 왼쪽: 선택된 카드들 -->
-            <div class="cards-panel">
-                <h2>🎴 뽑힌 카드들</h2>
-                <div class="cards-container" id="cardsContainer">
-                    <div class="no-cards">
-                        <p>아직 카드가 뽑히지 않았습니다.</p>
-                        <p>채팅창에서 질문을 해보세요!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 오른쪽: 채팅 영역 -->
-            <div class="chat-panel">
-                <div class="chat-container">
-                    <div class="chat-messages" id="chatMessages">
-                        <div class="system-message">
-                            <p>🔮 타로 챗봇에 오신 것을 환영합니다!</p>
-                            <p>궁금한 것을 물어보시면 타로로 점을 봐드리겠습니다.</p>
-                            <p><strong>도움말</strong>을 입력하면 사용법을 확인할 수 있어요.</p>
-                        </div>
-                    </div>
-
-                    <div class="chat-input-container">
-                        <div class="card-selector">
-                            <label for="numCards">카드 수:</label>
-                            <select id="numCards">
-                                <option value="1">1장</option>
-                                <option value="2">2장</option>
-                                <option value="3" selected>3장</option>
-                            </select>
-                        </div>
-                        <div class="input-wrapper">
-                            <input type="text" id="messageInput" placeholder="질문을 입력해주세요..." maxlength="500">
-                            <button id="sendButton">전송</button>
-                        </div>
-                    </div>
-                </div>
+        <div class="chat-box" id="chat-box">
+            <div class="message bot-message">
+                <p>안녕하세요! 저는 손관주의 경험과 역량을 기반으로 답변하는 AI 챗봇입니다. 궁금한 점을 물어보세요. (예: "PM으로서의 역량은?", "가장 기억에 남는 프로젝트는?")</p>
             </div>
         </div>
+        <footer class="chat-footer">
+            <form id="message-form" class="message-form">
+                <input type="text" id="message-input" placeholder="메시지를 입력하세요..." autocomplete="off">
+                <button type="submit">전송</button>
+            </form>
+        </footer>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
