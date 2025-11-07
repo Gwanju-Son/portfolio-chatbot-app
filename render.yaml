@@ -1,0 +1,16 @@
+# This file specifies the services for Render.
+# You can deploy this app to Render by linking this repository.
+# See https://render.com/docs/blueprint-spec for more details.
+
+services:
+  - type: web
+    name: portfolio-chatbot
+    env: python
+    plan: free # You can choose a different plan if needed
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.4 # Specify a Python version compatible with your dependencies
+      - key: GEMINI_API_KEY
+        fromSecret: true # This tells Render to look for a secret variable

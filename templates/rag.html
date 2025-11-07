@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Q&A</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .rag-container { max-width: 900px; margin: 2rem auto; }
+        .qa-input { display:flex; gap:8px; }
+        .sources { font-size: 0.9rem; color: #666; margin-top: 0.5rem; }
+        pre.answer { background:#f7f7f7; padding:1rem; white-space:pre-wrap; }
+    </style>
+</head>
+<body>
+    <div class="rag-container">
+        <h1>RAG Q&A (교육/PM 도메인)</h1>
+
+        <div>
+            <div class="qa-input">
+                <input id="questionInput" type="text" placeholder="질문을 입력하세요..." style="flex:1;padding:8px;">
+                <button id="askBtn">질문</button>
+            </div>
+            <div style="margin-top:8px;">
+                <label for="kSelect">참고 문서 수:</label>
+                <select id="kSelect"><option>1</option><option selected>3</option><option>5</option></select>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="resultArea">
+            <h3>응답</h3>
+            <pre class="answer" id="answerArea">(질문 후 결과가 표시됩니다)</pre>
+            <div class="sources" id="sourcesArea"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='rag.js') }}"></script>
+</body>
+</html>

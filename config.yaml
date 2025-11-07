@@ -1,0 +1,14 @@
+# Gemini API Configuration
+gemini:
+  api_key: "AIzaSyC4zrhudXJO7DggAHTpivSHTF6f0dnaKww"
+  model: "gemini-1.5-flash"
+
+# Tarot Settings
+tarot:
+  cards_file: "tarot_cards.json"
+  max_cards_per_reading: 3
+
+# Chat Settings
+chat:
+  max_history: 10
+  temperature: 0.8
