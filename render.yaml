@@ -13,4 +13,4 @@ services:
       - key: PYTHON_VERSION
         value: 3.11.4 # Specify a Python version compatible with your dependencies
       - key: GEMINI_API_KEY
-        fromSecret: true # This tells Render to look for a secret variable
+        value: "" # This will be overridden by the secret value from the Render dashboard
